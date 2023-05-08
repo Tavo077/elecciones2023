@@ -75,21 +75,22 @@
                     <div class="relative">
                         <input type="email" id="floating_outlined" id="email" :value="old('email')"
                             name="email" required
-                            class="block w-[350px] px-2.5 pb-2.5 pt-4 text-sm bg-primary rounded-lg border-1 appearance-none text-white border-secondary focus:border-primary_light focus:outline-none focus:ring-0 peer"
+                            class="block w-[350px] px-2.5 pb-2.5 pt-4 text-sm bg-transparent rounded-lg border-1 appearance-none text-white border-secondary focus:border-primary-light focus:outline-none focus:ring-0 peer"
                             placeholder=" " value="{{ old('email') }}">
                         <label for="floating_outlined"
-                            class="absolute text-sm text-white duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-primary px-2 peer-focus:px-2 peer-focus:text-prborder-primary_light peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Correo
+                            class="absolute text-sm text-white duration-300 transform -translate-y-7 scale-75 top-2 z-10 origin-[0] bg-transparent px-2 peer-focus:px-2 peer-focus:text-prborder-primary_light peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-7 left-1">Correo
                             Electrónico</label>
+                            
                     </div>
                 </div>
 
                 <div class="mt-10">
                     <div class="relative">
                         <input type="password" id="floating_outlined" name="password" required
-                            class="block w-[350px] px-2.5 pb-2.5 pt-4 text-sm bg-primary rounded-lg border-1 appearance-none text-white border-secondary focus:border-primary_light focus:outline-none focus:ring-0 peer"
+                            class="block w-[350px] px-2.5 pb-2.5 pt-4 text-sm bg-transparent  rounded-lg border-1 appearance-none text-white border-secondary focus:border-primary-light focus:outline-none focus:ring-0 peer"
                             placeholder=" " />
                         <label for="floating_outlined"
-                            class="absolute text-sm text-white duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-primary px-2 peer-focus:px-2 peer-focus:text-prborder-primary_light peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Contraseña</label>
+                            class="absolute text-sm text-white duration-300 transform -translate-y-7 scale-75 top-2 z-10 origin-[0] bg-transparent  px-2 peer-focus:px-2 peer-focus:text-prborder-primary_light peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-7 left-1">Contraseña</label>
                     </div>
                 </div>
             </div>
@@ -112,7 +113,7 @@
                 @endif
             </div>
 
-            <button class="group relative py-3 px-7 overflow-hidden rounded-lg bg-white text-lg shadow mt-5">
+            <button class="block w-[150px] px-2.5 pb-2.5 pt-3 group relative overflow-hidden rounded-lg bg-white text-sm shadow mt-5">
                 <div class="absolute inset-0 w-3 bg-button transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                 <span class="relative text-black group-hover:text-white"> Iniciar sesión</span>
               </button>
