@@ -65,7 +65,7 @@ return [
 
     'logo' => '<b>Elecciones</b> 2023',
     'logo_img' => 'vendor/adminlte/dist/img/LogoUMG.png',
-    'logo_img_class' => 'brand-image elevation-3',
+    'logo_img_class' => 'brand-image',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Logo elecciones 2023',
@@ -304,19 +304,19 @@ return [
         [
             'text'        => 'Dashboard',
             'url'         => '/',
-            'icon'        => 'fas fa-fw fa-chart-line', 
+            'icon'        => 'fas fa-fw fa-chart-line',
             'active'      => ['/'],
         ],
         [
             'text'        => 'Candidatos',
             'route'         => 'candidatos.index',
-            'icon'        => 'fas fa-fw fa-user-tie', 
+            'icon'        => 'fas fa-fw fa-user-tie',
             'active'      => ['/candidatos*'],
         ],
         [
             'text'        => 'Usuarios',
             'route'         => 'usuarios.index',
-            'icon'        => 'fas fa-fw fa-users', 
+            'icon'        => 'fas fa-fw fa-users',
             'active'      => ['/usuarios*'],
         ],
     ],
@@ -473,5 +473,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
