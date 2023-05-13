@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -20,15 +22,19 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.usuarios.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $user = User::create($request->only('name', 'email', 'dpi') + [
+            'password' => bcrypt($request->input('password'))
+        ]);
+
+        return redirect()->route('usuarios.index')->with('info', 'El usuario a sido registrado');
     }
 
     /**
@@ -42,17 +48,27 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $usuario)
     {
-        //
+        return view('admin.usuarios.edit', compact('usuario'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserRequest $request, User $usuario)
     {
-        //
+        $data = $request->only("name", "email", "dpi");
+        if (trim($request->password) == '') {
+            $data = $request->except('password');
+        } else {
+            $data = $request->all();
+            $data['password'] = bcrypt($request->password);
+        }
+
+        $usuario->update($data);
+
+        return redirect()->route('usuarios.index')->with('info', 'Se actualizo la información del usuario exitosamente');
     }
 
     /**

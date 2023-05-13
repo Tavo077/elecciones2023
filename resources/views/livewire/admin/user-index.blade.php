@@ -3,24 +3,24 @@
 
         <div class="card-header row">
             <input wire:model="search" class="mr-2 form-control col" type="text" placeholder="Buscar usuario...">
-            <a class="float-right ml-4 btn btn-primary" href="#">
+            <a class="float-right ml-4 btn btn-primary" href="{{ route('usuarios.create') }}">
                 <i class="fa-solid fa-user-plus"></i></a>
         </div>
 
         @if ($users->count())
             <div class="card-body">
-                @if (session('info'))
+                {{-- @if (session('info'))
                     <div class="alert alert-success" role="alert">
                         <i class="fas fa-thumbs-up"></i> {{ session('info') }}
                     </div>
-                @endif
+                @endif --}}
                 <table class="table table-striped table-hover table-responsive-lg">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
+                            <th>DPI</th>
                             <th>Correo Eléctronico</th>
-                            <th>Número de teléfono</th>
                             <th>Rol</th>
                             <th colspan="2">Acciones</th>
                         </tr>
@@ -32,11 +32,11 @@
                             <tr>
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
+                                <td>{{ $user->dpi }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->phone_number }}</td>
                                 <td>rol del usuario</td>
                                 <td style="width: 10px">
-                                    <a class="btn btn-primary btn-sm" href="#"><i
+                                    <a class="btn btn-primary btn-sm" href="{{ route('usuarios.edit', $user) }}"><i
                                             class="fa-solid fa-pencil"></i></a>
                                 </td>
 

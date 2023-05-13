@@ -10,12 +10,18 @@ use App\Models\User;
 class UserIndex extends Component
 {
     use WithPagination;
+    protected $listeners = ['delete'];
     protected $paginationTheme = "bootstrap";
     public $search;
 
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+    public function delete(User $usuario)
+    {
+        $usuario->delete();
     }
 
 
