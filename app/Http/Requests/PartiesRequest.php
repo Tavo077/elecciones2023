@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CandidatesRequest extends FormRequest
+class PartiesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,10 +21,10 @@ class CandidatesRequest extends FormRequest
      */
     public function rules(): array
     {
-        $candidato = $this->route()->parameter('candidato');
+        $partido = $this->route()->parameter('partido');
 
         $rules = [
-            "nombre" => "required",
+            "nombre_partido" => "required",
         ];
 
         return $rules;

@@ -1,12 +1,12 @@
 <div class="form-group">
-    {!! Form::label('nombre', 'Nombre completo del candidato:') !!}
-    {!! Form::text('nombre', null, [
+    {!! Form::label('nombre_partido', 'Nombre completo del partido político:') !!}
+    {!! Form::text('nombre_partido', null, [
         'class' => 'form-control',
-        'placeholder' => 'Ingrese nombre completo del candidato...',
+        'placeholder' => 'Ingrese nombre completo del partido político...',
         'autofocus',
     ]) !!}
 
-    @error('nombre')
+    @error('nombre_partido')
         <small class="text-danger">{{ $message }}</small>
     @enderror
 </div>

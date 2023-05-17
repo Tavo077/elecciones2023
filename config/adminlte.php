@@ -308,6 +308,12 @@ return [
             'active'      => ['/'],
         ],
         [
+            'text'        => 'Partidos',
+            'route'         => 'partidos.index',
+            'icon'        => 'fas fa-fw fa-landmark-alt',
+            'active'      => ['/partidos*'],
+        ],
+        [
             'text'        => 'Candidatos',
             'route'         => 'candidatos.index',
             'icon'        => 'fas fa-fw fa-user-tie',

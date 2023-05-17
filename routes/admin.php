@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidatesController;
+use App\Http\Controllers\PartiesController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,3 +11,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('usuarios', UsersController::class)->names('usuarios');
 Route::resource('candidatos', CandidatesController::class)->names('candidatos');
+Route::resource('partidos', PartiesController::class)->names('partidos');
