@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CandidatesRequest;
 use App\Models\Candidate;
+use App\Models\Party;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CandidatesController extends Controller
 {
@@ -22,7 +24,8 @@ class CandidatesController extends Controller
      */
     public function create()
     {
-        return view('admin.candidatos.create');
+        $partidos = Party::pluck('nombre_partido', 'id');
+        return view('admin.candidatos.create', compact('partidos'));
     }
 
     /**
@@ -30,7 +33,15 @@ class CandidatesController extends Controller
      */
     public function store(CandidatesRequest $request)
     {
-        $candidates = Candidate::create($request->all());
+
+        $candidato = Candidate::create($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('candidato', $request->file('file'));
+            $candidato->image()->create([
+                'url' => $url
+            ]);
+        }
 
         return redirect()->route('candidatos.index')->with('info', 'El candidatos a sido registrado');
     }
@@ -48,7 +59,8 @@ class CandidatesController extends Controller
      */
     public function edit(Candidate $candidato)
     {
-        return view('admin.candidatos.edit', compact('candidato'));
+        $partidos = Party::pluck('nombre_partido', 'id');
+        return view('admin.candidatos.edit', compact('candidato', 'partidos'));
     }
 
     /**
@@ -56,9 +68,23 @@ class CandidatesController extends Controller
      */
     public function update(CandidatesRequest $request, Candidate $candidato)
     {
-        $data = $request->all();
+        $candidato->update($request->all());
 
-        $candidato->update($data);
+        if ($request->file('file')) {
+            $url = Storage::put('candidatos', $request->file('file'));
+
+            if ($candidato->image) {
+                Storage::delete($candidato->image->url);
+
+                $candidato->image->update([
+                    'url' => $url
+                ]);
+            } else {
+                $candidato->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
 
         return redirect()->route('candidatos.index')->with('info', 'Se actualizo la información del candidato');
     }

@@ -18,4 +18,9 @@ class Party extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    public function candidate()
+    {
+        return $this->hasOne(Candidate::class);
+    }
 }

@@ -8,6 +8,7 @@ use App\Models\Candidate;
 use App\Models\Party;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,12 +31,10 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin123'),
         ]);
 
-        Candidate::factory()->create([
-            'nombre' => 'Sandra Torres',
-        ]);
-
         User::factory(10)->create();
-        /* Candidate::factory(10)->create();
-        Party::factory(10)->create(); */
+
+        Storage::deleteDirectory('partidos');
+        Storage::makeDirectory('partidos');
+        $this->call(PartySeeder::class);
     }
 }

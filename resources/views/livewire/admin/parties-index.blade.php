@@ -5,7 +5,7 @@
             <div class="card-header row">
                 <input wire:model="search" class="mr-2 form-control col" type="text" placeholder="Buscar partidos...">
                 <a class="float-right ml-4 btn btn-primary" href="{{ route('partidos.create') }}">
-                    <i class="fa-solid fa-user-plus"></i></a>
+                    <i class="fas fa-plus"></i></a>
             </div>
 
             @if ($parties->count())

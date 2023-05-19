@@ -25,6 +25,7 @@ class CandidatesRequest extends FormRequest
 
         $rules = [
             "nombre" => "required",
+            'party_id' => 'required'
         ];
 
         return $rules;

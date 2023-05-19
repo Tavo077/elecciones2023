@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Administrador Candidatos')
+@section('title', 'Administrador de Cadidatos')
 
 @section('content_header')
     <h1>Administrador de Candidatos</h1>
@@ -19,7 +19,4 @@
 @stop
 
 @section('js')
-    <script>
-        console.log('Hi!');
-    </script>
 @stop
