@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PartiesRequest;
 use App\Models\Party;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PartiesController extends Controller
 {
@@ -30,7 +31,14 @@ class PartiesController extends Controller
      */
     public function store(PartiesRequest $request)
     {
-        $candidates = Party::create($request->all());
+        $partido = Party::create($request->all());
+
+        if ($request->file('file')) {
+            $url = Storage::put('partidos', $request->file('file'));
+            $partido->image()->create([
+                'url' => $url
+            ]);
+        }
 
         return redirect()->route('partidos.index')->with('info', 'El partido a sido registrado');
     }
@@ -56,9 +64,23 @@ class PartiesController extends Controller
      */
     public function update(PartiesRequest $request, Party $partido)
     {
-        $data = $request->all();
+        $partido->update($request->all());
 
-        $partido->update($data);
+        if ($request->file('file')) {
+            $url = Storage::put('partidos', $request->file('file'));
+
+            if ($partido->image) {
+                Storage::delete($partido->image->url);
+
+                $partido->image->update([
+                    'url' => $url
+                ]);
+            } else {
+                $partido->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
 
         return redirect()->route('partidos.index')->with('info', 'Se actualizo la información del partido');
     }

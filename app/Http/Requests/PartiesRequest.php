@@ -25,6 +25,7 @@ class PartiesRequest extends FormRequest
 
         $rules = [
             "nombre_partido" => "required",
+            "file" => "image"
         ];
 
         return $rules;

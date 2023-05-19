@@ -310,7 +310,7 @@ return [
         [
             'text'        => 'Partidos',
             'route'         => 'partidos.index',
-            'icon'        => 'fas fa-fw fa-landmark-alt',
+            'icon'        => 'fas fa-fw fa-landmark',
             'active'      => ['/partidos*'],
         ],
         [

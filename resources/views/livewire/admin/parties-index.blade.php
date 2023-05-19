@@ -26,7 +26,15 @@
                                 <tr>
                                     <td>{{ $party->id }}</td>
                                     <td>{{ $party->nombre_partido }}</td>
-                                    <td>texto</td>
+                                    <td>
+                                        @if ($party->image->url)
+                                            <img width="60px" src="{{ Storage::url($party->image->url) }}"
+                                                alt="{{ $party->nombre_partido }}">
+                                        @else
+                                            <img src="https://wiki.ead.pucv.cl/images/e/e0/Sin-foto.png"
+                                                alt="Sin imagen">
+                                        @endif
+                                    </td>
 
                                     <td style="width: 10px">
                                         <a class="btn btn-primary btn-sm" href="{{ route('partidos.edit', $party) }}"><i

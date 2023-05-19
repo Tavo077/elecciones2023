@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(10)->create();
-        Candidate::factory(10)->create();
-        Party::factory(10)->create();
+        /* Candidate::factory(10)->create();
+        Party::factory(10)->create(); */
     }
 }

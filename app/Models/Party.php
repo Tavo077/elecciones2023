@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Party extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'nombre_partido',
     ];
 
-    use HasFactory;
+    /* Relación polimorfica */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }
