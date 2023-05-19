@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Registro de Candidatos')
+@section('title', 'Registro de partidos')
 
 @section('content_header')
-    <h1>Registro de Candidatos</h1>
+    <h1>Registro de partidos</h1>
 @stop
 
 @section('content')
@@ -25,13 +25,13 @@
                 </div>
             @endif
 
-            {!! Form::open(['route' => 'candidatos.store', 'files' => true]) !!}
+            {!! Form::open(['route' => 'partidos.store', 'files' => true]) !!}
 
             {!! Form::hidden('user_id', auth()->user()->id) !!}
 
-            @include('admin.candidatos.partials.form')
+            @include('admin.partidos.partials.form')
 
-            <button type="submit" class="btn btn-primary">Registrar Candidato <i class="ml-2 fa-solid fa-plus"></i></button>
+            <button type="submit" class="btn btn-primary">Registrar partido <i class="ml-2 fa-solid fa-plus"></i></button>
 
 
             {!! Form::close() !!}

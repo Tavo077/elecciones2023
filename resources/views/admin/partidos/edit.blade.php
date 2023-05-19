@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Registro de Candidatos')
+@section('title', 'Editar partido')
 
 @section('content_header')
-    <h1>Registro de Candidatos</h1>
+    <h1>Edición de partido</h1>
 @stop
 
 @section('content')
@@ -25,13 +25,11 @@
                 </div>
             @endif
 
-            {!! Form::open(['route' => 'candidatos.store', 'files' => true]) !!}
+            {!! Form::model($partido, ['route' => ['partidos.update', $partido], 'files' => 'true', 'method' => 'put']) !!}
 
-            {!! Form::hidden('user_id', auth()->user()->id) !!}
+            @include('admin.partidos.partials.form')
 
-            @include('admin.candidatos.partials.form')
-
-            <button type="submit" class="btn btn-primary">Registrar Candidato <i class="ml-2 fa-solid fa-plus"></i></button>
+            <button type="submit" class="btn btn-primary">Actualizar información <i class="ml-2 fas fa-pencil"></i></button>
 
 
             {!! Form::close() !!}
@@ -40,9 +38,12 @@
 @stop
 
 @section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
     <style>
         .none {
@@ -67,7 +68,6 @@
 @stop
 
 @section('js')
-    {{-- image --}}
     <script>
         //Cambiar imagen
         document.getElementById('file').addEventListener('change', changeImage);

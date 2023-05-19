@@ -13,9 +13,9 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
+                            <th>Nombre del candidato</th>
+                            <th>Foto del candidato</th>
                             <th>Nombre del partido</th>
-                            <th>Logo del partido</th>
                             <th colspan="2">Acciones</th>
                         </tr>
                     </thead>
@@ -26,9 +26,16 @@
                             <tr>
                                 <td>{{ $candidate->id }}</td>
                                 <td>{{ $candidate->nombre }}</td>
-                                <td>{{ $candidate->nombre_partido }}</td>
-                                <td><img width="60px" src="{{ $candidate->logo }}"
-                                        alt="{{ $candidate->nombre_partido }}"></td>
+                                <td>
+                                    @if ($candidate->image->url)
+                                        <img width="100px" class="rounded"
+                                            src="{{ Storage::url($candidate->image->url) }}"
+                                            alt="{{ $candidate->nombre_partido }}">
+                                    @else
+                                        <img src="https://wiki.ead.pucv.cl/images/e/e0/Sin-foto.png" alt="Sin imagen">
+                                    @endif
+                                </td>
+                                <td>{{ $candidate->party->nombre_partido }}</td>
 
                                 <td style="width: 10px">
                                     <a class="btn btn-primary btn-sm"

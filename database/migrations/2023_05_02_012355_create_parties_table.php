@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('candidates', function (Blueprint $table) {
+        Schema::create('parties', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-
-            $table->unsignedBigInteger('party_id');
-            $table->foreign('party_id')->references('id')->on('parties')->onDelete('cascade');
+            $table->string('nombre_partido');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('candidates');
+        Schema::dropIfExists('parties');
     }
 };

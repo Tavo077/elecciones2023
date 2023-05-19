@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Administrador de Cadidatos')
+@section('title', 'Administrador de Partidos')
 
 @section('content_header')
-    <h1>Administrador de Candidatos</h1>
+    <h1>Administrador de Partidos</h1>
 @stop
 
 @section('content')
-    @livewire('admin.candidate-index')
+    @livewire('admin.parties-index')
 @stop
 
 @section('css')
@@ -19,4 +19,7 @@
 @stop
 
 @section('js')
+    <script>
+        console.log('Hi!');
+    </script>
 @stop
