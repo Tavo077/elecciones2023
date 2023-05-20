@@ -4,8 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Candidate;
+use App\Models\Party;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,5 +32,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(10)->create();
+
+        Storage::deleteDirectory('partidos');
+        Storage::makeDirectory('partidos');
+        $this->call(PartySeeder::class);
     }
 }

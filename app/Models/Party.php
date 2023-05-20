@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Candidate extends Model
+class Party extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'nombre',
-        'party_id'
+        'nombre_partido',
     ];
 
     /* Relación polimorfica */
@@ -19,8 +19,8 @@ class Candidate extends Model
         return $this->morphOne(Image::class, 'imageable');
     }
 
-    public function party()
+    public function candidate()
     {
-        return $this->belongsTo(Party::class);
+        return $this->hasOne(Candidate::class);
     }
 }
