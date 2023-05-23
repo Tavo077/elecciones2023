@@ -56,6 +56,24 @@
                 </div>
             @endforeach
 
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="card">
+                    <div class="card-header nombre-candidato text-danger">VOTO NULO</div>
+
+                    <div class="card1"
+                        style="background-image: url(https://www.pngitem.com/pimgs/m/81-817805_letter-x-png-free-download-x-icon-red.png)">
+                    </div>
+
+                    <div class="card-body nombre_partido text-danger">VOTO NULO</div>
+                    <div class="card-footer d-flex justify-content-center">
+                        <a class="btn btn-outline-danger votar ">
+                            VOTAR ! <img width="40px" src="{{ asset('./images/logo-quetzal.svg') }}" alt="">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 @stop
