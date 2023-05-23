@@ -40,25 +40,41 @@
     border-radius: 5px;
     height: 450px;
 }
+
 .card .card1 {
-    background: url(https://lahora.gt/wp-content/uploads/sites/5/2023/03/CARLOS-PINEDA-.jpg);
+    position: relative;
+    height: 400px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.nombre-candidato {
+.card .logo_partido {
+    position: absolute;
+    background-color: #ffffff;
+    right: 20px;
+    bottom: 160px;
+    width: 90px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.nombre-candidato,
+.nombre_partido {
     font-size: 20px !important;
     text-align: left;
-    color: #ffffff;
     font-weight: 700;
     font-family: "Open Sans", sans-serif;
     margin-top: 0px;
 }
 
-.foto-candidato {
-    width: 80px;
-    border-radius: 10px;
+.nombre_partido {
+    color: #526d82;
+}
+
+.votar {
+    font-weight: 700;
+    font-size: 20px !important;
 }
 
 /*---- Text Container ----*/
