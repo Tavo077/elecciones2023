@@ -30,7 +30,7 @@
                                     @if ($candidate->image->url)
                                         <img width="100px" class="rounded"
                                             src="{{ Storage::url($candidate->image->url) }}"
-                                            alt="{{ $candidate->nombre_partido }}">
+                                            alt="{{ $candidate->nombre }}">
                                     @else
                                         <img src="https://wiki.ead.pucv.cl/images/e/e0/Sin-foto.png" alt="Sin imagen">
                                     @endif
