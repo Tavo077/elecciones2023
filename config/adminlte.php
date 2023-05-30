@@ -302,6 +302,12 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'Votar',
+            'route'         => 'voto.index',
+            'icon'        => 'fas fa-fw fa-vote-yea',
+            'active'      => ['/votar'],
+        ],
+        [
             'text'        => 'Dashboard',
             'url'         => '/',
             'icon'        => 'fas fa-fw fa-chart-line',
