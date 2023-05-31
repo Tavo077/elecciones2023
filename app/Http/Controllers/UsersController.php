@@ -6,9 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:usuarios.index');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -50,7 +56,8 @@ class UsersController extends Controller
      */
     public function edit(User $usuario)
     {
-        return view('admin.usuarios.edit', compact('usuario'));
+        $roles= Role::all();
+        return view('admin.usuarios.edit', compact('usuario', 'roles'));
     }
 
     /**
@@ -66,6 +73,7 @@ class UsersController extends Controller
             $data['password'] = bcrypt($request->password);
         }
 
+        $usuario->roles()->sync($request->roles);
         $usuario->update($data);
 
         return redirect()->route('usuarios.index')->with('info', 'Se actualizo la información del usuario exitosamente');

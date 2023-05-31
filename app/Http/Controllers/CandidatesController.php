@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Storage;
 
 class CandidatesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:candidatos.index');
+    }
     /**
      * Display a listing of the resource.
      */

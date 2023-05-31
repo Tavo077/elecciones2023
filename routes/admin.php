@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Route;
 })->name('candidatos.index'); */
 
 
-Route::get('voto', [VotesController::class, 'index'])->name('voto.index');
+Route::get('/', [VotesController::class, 'index'])->name('voto.index');
+Route::post('voto', [VotesController::class, 'store'])->name('voto.store');
+
 Route::resource('usuarios', UsersController::class)->names('usuarios');
 Route::resource('candidatos', CandidatesController::class)->names('candidatos');
 Route::resource('partidos', PartiesController::class)->names('partidos');

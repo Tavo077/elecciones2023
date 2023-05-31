@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Storage;
 
 class PartiesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:partidos.index');
+    }
     /**
      * Display a listing of the resource.
      */

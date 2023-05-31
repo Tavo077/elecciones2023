@@ -51,25 +51,15 @@
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-
-        {{-- <div class="col form-group">
-            {!! Form::label('password_confirmation', 'Confirmación de la contraseña:') !!}
-            {!! Form::password('password_confirmation', [
-                'class' => 'form-control',
-                'placeholder' => 'Confirme la contraseña del usuario...',
-            ]) !!}
-            @error('password_confirmation')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
-        </div> --}}
     </div>
+</div>
 
-    {{-- <div class="form-group">
-        {!! Form::label('role', 'Permisos del usuairo:') !!}
-        {!! Form::select('role', ['Administrador', 'Maestro', 'Padre/encargado'], null, ['class' => 'form-control']) !!}
-        @error('role')
-            <small class="text-danger">{{ $message }}</small>
-        @enderror
-    </div> --}}
+<div class="form-group">
+    @foreach ($roles as $role)
+        {!! Form::checkbox('roles[]', $role->id, null, [
+            'class' => 'mr-1',
+        ]) !!}
 
+        {{$role->name}}
+    @endforeach
 </div>

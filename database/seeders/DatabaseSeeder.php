@@ -17,24 +17,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(RoleSeeder::class);
         User::factory()->create([
             'name' => 'Carlos Villatoro',
             'dpi' => '2899053450101',
             'email' => 'carlos@villatoro.dev',
             'password' => bcrypt('admin123'),
-        ]);
+        ])->assignRole('Admin');
 
         User::factory()->create([
             'name' => 'Tavo',
             'dpi' => '9076073450101',
             'email' => 'gcastilloo1@miumg.edu.gt',
             'password' => bcrypt('admin123'),
-        ]);
+        ])->assignRole('Admin');
 
         User::factory(10)->create();
 
         Storage::deleteDirectory('partidos');
         Storage::makeDirectory('partidos');
         $this->call(PartySeeder::class);
+
     }
 }
