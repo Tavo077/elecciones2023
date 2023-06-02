@@ -73,7 +73,7 @@
 
             </div>
             <button type="submit" class="btn btn-outline-success votar ">
-                VOTAR ! <img width="40px" src="{{ asset('./images/logo-quetzal.svg') }}" alt="">
+                REALIZAR VOTO ! <img width="40px" src="{{ asset('./images/logo-quetzal.svg') }}" alt="">
             </button>
         </div>
         {!! Form::close() !!}
@@ -104,5 +104,5 @@
             }
             toastr.success("{{ session('info') }}");
         @endif
-    </script>
+    </script>
 @stop
