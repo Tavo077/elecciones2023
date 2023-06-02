@@ -63,8 +63,10 @@
                                 alt="">
 
                             <div class="card-body nombre_partido">{{ $candidate->party->nombre_partido }}</div>
-                            <div class="card-footer d-flex justify-content-center">
-                                {!! Form::checkbox('candidates_id', $candidate->id, null) !!}
+
+                            <div class="text-center card-footer">
+                                {!! Form::radio('candidates_id', $candidate->id, null, ['class' => 'radio-success']) !!}
+                                {!! Form::label('candidates_id', 'SELECCIONAR') !!}
                             </div>
 
                         </div>
@@ -72,9 +74,11 @@
                 @endforeach
 
             </div>
-            <button type="submit" class="btn btn-outline-success votar ">
-                REALIZAR VOTO ! <img width="40px" src="{{ asset('./images/logo-quetzal.svg') }}" alt="">
-            </button>
+            <div class="mt-5 d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-success votar ">
+                    REALIZAR VOTO ! <img width="40px" src="{{ asset('./images/logo-quetzal.svg') }}" alt="">
+                </button>
+            </div>
         </div>
         {!! Form::close() !!}
     @endif

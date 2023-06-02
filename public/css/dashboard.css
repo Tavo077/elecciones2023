@@ -1,0 +1,61 @@
+.panel {
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 24px;
+}
+
+.panel-dark.panel-colorful {
+    background: linear-gradient(45deg, #4099ff, #73b4ff);
+    color: #fff;
+}
+
+.panel-danger.panel-colorful {
+    background: linear-gradient(45deg, #ff5370, #ff869a);
+    color: #fff;
+}
+
+.panel-success.panel-colorful {
+    background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+    color: #fff;
+}
+
+.panel-info.panel-colorful {
+    background-color: #4ebcda;
+    border-color: #4ebcda;
+    color: #fff;
+}
+
+.panel-body {
+    padding: 25px 20px;
+}
+
+.panel hr {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.mar-btm {
+    margin-bottom: 15px;
+}
+
+h2,
+.h2 {
+    font-size: 28px;
+}
+
+.small,
+small {
+    font-size: 85%;
+}
+
+.text-sm {
+    font-size: 0.9em;
+}
+
+.text-thin {
+    font-weight: 300;
+}
+
+.text-semibold {
+    font-weight: 600;
+}

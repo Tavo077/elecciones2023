@@ -21,7 +21,6 @@
                             <th>Nombre</th>
                             <th>DPI</th>
                             <th>Correo Eléctronico</th>
-                            <th>Rol</th>
                             <th colspan="2">Acciones</th>
                         </tr>
                     </thead>
@@ -34,7 +33,6 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->dpi }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>rol del usuario</td>
                                 <td style="width: 10px">
                                     <a class="btn btn-primary btn-sm" href="{{ route('usuarios.edit', $user) }}"><i
                                             class="fa-solid fa-pencil"></i></a>

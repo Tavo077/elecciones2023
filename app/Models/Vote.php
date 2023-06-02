@@ -14,7 +14,7 @@ class Vote extends Model
         'user_id'
     ];
 
-    public function candidate()
+    public function candidates()
     {
         return $this->belongsTo(Candidate::class);
     }
