@@ -1,66 +1,89 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Como instalar el proyecto
 
-## About Laravel
+1. Clonar el repositorio del proyecto en Laravel
+Para clonar tu proyecto abre una terminal o consola de comandos y escribe la siguiente nomenclatura recuerda cambiar la dirección del repositorio por la tuya esto es después de la instrucción git clone agrega tu dirección:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```bash
+  git clone git@github.com:Tavo077/elecciones2023.git
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+2. Instalar dependencias del proyecto
+Cuando guardas tu proyecto Laravel en un repositorio GIT, en el archivo .gitignore se excluye la carpeta vendor que es donde están las librerías que usa tu proyecto, es por eso que se debe correr en la terminal una instrucción que tome del archivo composer.json todas las referencias de las librerías que deben estar instaladas en tu proyecto.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Ingresa desde la terminal a la carpeta de tu proyecto y escribe:
 
-## Learning Laravel
+```bash
+ composer install
+```
+NOTA: Además debemos de instalar npm dentro de nuestro proyecto ejecutando el siguiente comando.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+ npm install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Este comando instalará todas las librerías que están declaradas para tu proyecto.
 
-## Laravel Sponsors
+Existen ocasiones que en vez de usar el comanado anterior es necesario hacer un update y para ello en la terminal de comandos ejecuta la instrucción:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+ composer update
+```
 
-### Premium Partners
+3. Generar archivo .env
+Por seguridad el archivo .env está excluido del repositorio, para generar uno nuevo se toma como plantilla el archivo .env.example para copiar este archivo en una nuevo escribe en tu terminal:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+ cp .env.example .env
+```
 
-## Contributing
+4. Generar Key
+Para que tu proyecto en Laravel corra sin problemas es necesario generar una key de seguirdad, para ello en tu terminal corre el siguiente comando:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+ php artisan key:generate
+```
 
-## Code of Conduct
+Esta key nueva se agregará al archivo .env de tu proyecto en Laravel.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. Crear base de datos elecciones2023, con el usuario root y sin contraseña la conexión debe de hacerse en local.
 
-## Security Vulnerabilities
+7. Crear vínculo simbólico
+Sí tu proyecto guarda algún tipo de archivo como imágenes, pdf’s etc., necesitas desde la consola de comandos crear un vínculo o enlace simbólico de la carpeta public a la carpeta storage para que tu sistema pueda tener acceso a los archivos, desde tu terminal teclea:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+ php artisan storage:link
+```
 
-## License
+8. Composer dump-autoload
+Sí en tu proyecto creaste nuevas clases como helpers tienes que correr este comando para que se agreguen al cargador automático de clases de otra manera cuando algún método mande a llamar estás clases te arrojará un error:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+ composer dump-autoload
+```
+
+9. Correr migraciones y seeds
+Sí tu proyecto no usa los seeds para sembrar datos en la base de datos solo corre el comando:
+
+```bash
+ php artisan migrate --seed
+```
+
+NOTA: No olvides ejecutar los comando para correr el servidor de vite y el servidor de laravel:
+
+
+```bash
+ php artisan serve
+```
+
+```bash
+ npm run dev
+```
+
+Con esto debería poder visualizar el proyecto en la ruta local http://127.0.0.1::8000 y las credenciales de administrador utilizar:
+
+Usuario: admin@test.dev
+
+Contraseña: password
+
